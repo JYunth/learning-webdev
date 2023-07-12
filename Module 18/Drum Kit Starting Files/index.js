@@ -2,11 +2,13 @@ for (var i = 0; i < document.querySelectorAll(".drum").length; i++){
     document.querySelectorAll(".drum")[i].addEventListener("click", function(){
         keyclicked = this.innerHTML;
         soundPodu(keyclicked);
+        buttonAnimation(keyclicked);
     });
 }
 
 document.addEventListener("keydown", function(event){
     soundPodu(event.key);
+    buttonAnimation(event.key);
 });
 
 function soundPodu(keyclicked){
@@ -34,3 +36,11 @@ function soundPodu(keyclicked){
     }
 }
 
+function buttonAnimation(currentKey){
+    var triggered = document.querySelector("." + currentKey);
+    triggered.classList.add("pressed");
+
+    setTimeout(function(){
+        triggered.classList.remove("pressed");
+    }, 100);
+}
