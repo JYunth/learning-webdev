@@ -16,6 +16,10 @@ inquirer
     const url = answers.URL;
     var qr_png = qr.image(url);
     qr_png.pipe(fs.createWriteStream('qr_img.png'));
+    fs.writeFile("log.txt", url, (err) => {
+      if (err) throw err;
+      console.log("Successfully logged URL.")
+    });
   })
   .catch((error) => {
     if (error.isTtyError) {
