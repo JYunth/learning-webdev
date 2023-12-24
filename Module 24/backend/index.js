@@ -10,7 +10,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/contact",(req, res) => {
-    res.send("<h1>Contact me!</h1>")
+    res.send("<h1>Contact me!</h1>");
 });
 
 app.listen(3000, () => {
